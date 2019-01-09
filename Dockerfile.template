@@ -11,16 +11,6 @@ RUN apk add --no-cache make gcc g++ python && \
   JOBS=MAX npm install -g node-red node-red-contrib-resinio --production --silent && \
   apk del make gcc g++ python && \
   npm cache clean --force && rm -rf /tmp/*
-RUN apt-get install curl && \
-    curl -O http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
-    apt-key add mosquitto-repo.gpg.key && \
-    rm mosquitto-repo.gpg.key && \
-    cd /etc/apt/sources.list.d/ && \
-    curl -O http://repo.mosquitto.org/debian/mosquitto-repo.list && \
-    apt-get update && \
-    sudo apt-get install mosquitto mosquitto-clients && \
-
-
 
 # This will copy all files in our root to the working  directory in the container
 COPY ./app ./
