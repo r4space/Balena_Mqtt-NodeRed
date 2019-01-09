@@ -1,5 +1,4 @@
 # base-image for node on any machine using a template variable,
-# see more about dockerfile templates here:http://docs.resin.io/pages/deployment/docker-templates
 # Note the node:slim image doesn't have node-gyp
 FROM resin/%%RESIN_MACHINE_NAME%%-alpine-node:6-slim
 
@@ -12,6 +11,15 @@ RUN apk add --no-cache make gcc g++ python && \
   JOBS=MAX npm install -g node-red node-red-contrib-resinio --production --silent && \
   apk del make gcc g++ python && \
   npm cache clean --force && rm -rf /tmp/*
+RUN curl -O http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
+    apt-key add mosquitto-repo.gpg.key && \
+    rm mosquitto-repo.gpg.key && \
+    cd /etc/apt/sources.list.d/ && \
+    curl -O http://repo.mosquitto.org/debian/mosquitto-repo.list && \
+    apt-get update && \
+    sudo apt-get install mosquitto mosquitto-clients && \
+
+
 
 # This will copy all files in our root to the working  directory in the container
 COPY ./app ./
