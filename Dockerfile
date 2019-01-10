@@ -7,9 +7,9 @@ WORKDIR /usr/src/app
 
 ## Install nodeRed
 RUN install_packages wget
-#RUN install_packages make gcc g++ python vim wget&& \
-#    JOBS=MAX npm install -g node-red node-red-contrib-resinio --production --silent && \
-#  npm cache clean --force && rm -rf /tmp/*
+RUN install_packages make gcc g++ python vim wget&& \
+    JOBS=MAX npm install -g node-red node-red-contrib-resinio --production --silent && \
+  npm cache clean --force && rm -rf /tmp/*
 
 # Install mosquitto
 #RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
