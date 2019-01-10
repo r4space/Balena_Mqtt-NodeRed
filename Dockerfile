@@ -6,17 +6,19 @@ RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app
 
 ## Install nodeRed
-#RUN install_packages make gcc g++ python vim curl&& \
+RUN install_packages wget
+#RUN install_packages make gcc g++ python vim wget&& \
 #    JOBS=MAX npm install -g node-red node-red-contrib-resinio --production --silent && \
 #  npm cache clean --force && rm -rf /tmp/*
 
 # Install mosquitto
-RUN curl -O http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
+RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
     apt-key add mosquitto-repo.gpg.key && \ 
     rm mosquitto-repo.gpg.key && \
     cd /etc/apt/sources.list.d/ && \ 
-    curl -O http://repo.mosquitto.org/debian/mosquitto-stretch.list && \
-    apt-get update && apt-get install -yq \
+    wget http://repo.mosquitto.org/debian/mosquitto-stretch.list && \
+    apt-get update 
+    #apt-get update && apt-get install -yq \
     #mosquitto mosquitto-clients && \
     #apt-get clean && rm -rf /var/lib/apt/lists/*
 
