@@ -23,7 +23,7 @@ RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
 
 # Configure mosquitto
 RUN /etc/init.d/mosquitto stop && \
-    mv mosquitto.conf /etc/mosquitto/conf.d/ && \
+    mv $WORKDIR/mosquitto.conf /etc/mosquitto/conf.d/ && \
     touch /etc/mosquitto/conf.d/passwd && \
     mosquitto_passwd -b /etc/mosquitto/conf.d/passwd root NEONdev && \
     /etc/init.d/mosquitto start
