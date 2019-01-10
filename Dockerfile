@@ -12,12 +12,12 @@ RUN install_packages wget
 #  npm cache clean --force && rm -rf /tmp/*
 
 # Install mosquitto
-RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
-    apt-key add mosquitto-repo.gpg.key && \ 
-    rm mosquitto-repo.gpg.key && \
-    cd /etc/apt/sources.list.d/ && \ 
-    wget http://repo.mosquitto.org/debian/mosquitto-stretch.list && \
-    apt-get update 
+#RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
+#    apt-key add mosquitto-repo.gpg.key && \ 
+#    rm mosquitto-repo.gpg.key && \
+#    cd /etc/apt/sources.list.d/ && \ 
+#    wget http://repo.mosquitto.org/debian/mosquitto-stretch.list && \
+#    apt-get update 
     #apt-get update && apt-get install -yq \
     #mosquitto mosquitto-clients && \
     #apt-get clean && rm -rf /var/lib/apt/lists/*
