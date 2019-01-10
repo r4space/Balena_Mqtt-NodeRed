@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 
 # Install mosquitto
 RUN curl -O http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
-    apt-key add mosquitto-repo.gpg.key 
+    apt-key add mosquitto-repo.gpg.key && \ 
     rm mosquitto-repo.gpg.key && \
     cd /etc/apt/sources.list.d/ && \ 
     curl -O http://repo.mosquitto.org/debian/mosquitto-stretch.list && \
