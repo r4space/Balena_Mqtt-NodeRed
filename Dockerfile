@@ -21,6 +21,9 @@ RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
     mosquitto mosquitto-clients && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# This will copy all files in our root to the working  directory in the container
+COPY ./app ./
+
 ## Configure mosquitto
 RUN /etc/init.d/mosquitto stop && \
     cp ./mosquitto.conf /etc/mosquitto/conf.d/ && \
