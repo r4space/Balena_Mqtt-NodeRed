@@ -21,13 +21,13 @@ RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key && \
     mosquitto mosquitto-clients && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Configure mosquitto
-RUN /etc/init.d/mosquitto stop && \
-    mv $WORKDIR/mosquitto.conf /etc/mosquitto/conf.d/ && \
-    touch /etc/mosquitto/conf.d/passwd && \
-    mosquitto_passwd -b /etc/mosquitto/conf.d/passwd root NEONdev && \
-    /etc/init.d/mosquitto start
-    
+## Configure mosquitto
+#RUN /etc/init.d/mosquitto stop && \
+#    mv $WORKDIR/mosquitto.conf /etc/mosquitto/conf.d/ && \
+#    touch /etc/mosquitto/conf.d/passwd && \
+#    mosquitto_passwd -b /etc/mosquitto/conf.d/passwd root NEONdev && \
+#    /etc/init.d/mosquitto start
+#    
 
 # This will copy all files in our root to the working  directory in the container
 COPY ./app ./
