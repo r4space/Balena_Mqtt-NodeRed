@@ -1,0 +1,12 @@
+uuid: 625170156e8bcea4852893e2e1e6a7b2
+destination: /usr/src/app
+before: echo Hello
+after: echo Done
+ignore:
+  - .git
+  - node_modules/
+local_balenaos:
+  app-name: local-app
+  build-triggers:
+    - Dockerfile: 76baf5c125db10412819b905467dfa064fea69cdf760964b724e43ef793749c7
+  environment: []
