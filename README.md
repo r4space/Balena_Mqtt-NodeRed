@@ -1,3 +1,6 @@
+# Node-MQTT
+This is a dev created to explore node-red and mosquitto.  The image was created using a balena base node-red image and mosquitto added to it.  Remainder of this readme is from this base image.
+-------------------------------------------------------------------
 # balena-node-red
 
 A Node-RED application with [balena-supervisor](https://balena.io/docs/reference/supervisor/supervisor-api/) flow [support](https://github.com/balena-projects/node-red-contrib-balena), can be managed remotely via balena [publicURL](https://balena.io/docs/learn/manage/actions/#enable-public-device-url)

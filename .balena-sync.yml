@@ -8,5 +8,5 @@ ignore:
 local_balenaos:
   app-name: local-app
   build-triggers:
-    - Dockerfile: 76baf5c125db10412819b905467dfa064fea69cdf760964b724e43ef793749c7
+    - Dockerfile: 2e257d7d5887a04fa4ea332b7d46953dfc8d47deb49aaf2b414d5aceec757629
   environment: []
